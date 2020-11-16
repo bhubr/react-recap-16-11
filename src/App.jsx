@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import UserCard from './Components/UserCard';
 import './App.css';
 import UserList from './UserList';
 
@@ -9,8 +8,12 @@ class App extends Component {
     userList: [],
   };
 
-  // https://api.github.com/users
-  personList = () => {
+  componentDidMount(){
+    this.getPersonList();
+  };
+
+// https://api.github.com/users
+  getPersonList = () => {
     axios
       .get('https://api.github.com/users')
       .then((response) => response.data)
@@ -24,7 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <UserList userList={userList} />
-        <button type="button" onClick={this.personList}>
+        <button type="button" onClick={this.getPersonList}>
           PersonList
         </button>
       </div>
