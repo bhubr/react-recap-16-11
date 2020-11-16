@@ -6,3 +6,13 @@ code {
   background: #eee;
   color: #d04;
 }
+
+.UserList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.UserList img {
+  max-width: 120px;
+}
